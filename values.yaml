@@ -1,0 +1,16 @@
+externalAccess:
+  enabled: true
+  service:
+    type: NodePort
+    nodePorts:
+      - 30010
+    autoDiscovery:
+      enabled: true
+    # useHostIPs: true
+    # Use localhost for Kubernetes on Docker Desktop
+    domain: localhost
+zookeeper:
+  service:
+    type: NodePort
+    nodePorts:
+      client: 30011
