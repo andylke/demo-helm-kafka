@@ -1,3 +1,8 @@
+zookeeper:
+  service:
+    type: NodePort
+    nodePorts:
+      client: 30011
 externalAccess:
   enabled: true
   service:
@@ -6,11 +11,16 @@ externalAccess:
       - 30010
     autoDiscovery:
       enabled: true
-    # useHostIPs: true
+    useHostIPs: true
     # Use localhost for Kubernetes on Docker Desktop
-    domain: localhost
+    # domain: localhost
+persistence:
+  enabled: true
+  existingClaim: app-infra-kafka
 zookeeper:
   service:
     type: NodePort
     nodePorts:
       client: 30011
+  persistence:
+    existingClaim: app-infra-kafka-zookeeper
